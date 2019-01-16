@@ -25,7 +25,7 @@ node {
     }
 
     stage('Push image') {
-        docker.withRegistry( credentialsId:'0528161a-f932-431d-b5a0-b631674a8ecc', url: "https://hub.docker.com/?ref=login") {
+        withDockerRegistry( credentialsId:'0528161a-f932-431d-b5a0-b631674a8ecc', url: "https://hub.docker.com/?ref=login") {
         app.push("${env.BUILD_NUMBER}")
         app.push("latest")
         }
