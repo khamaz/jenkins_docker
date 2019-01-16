@@ -35,6 +35,6 @@ node {
         }
     }*/
     stage('create container') {
-           sh 'ssh -o StrictHostKeyChecking=no ansible@100.74.111.156 "sudo docker run -d  -p 4560:8000  september:v5 " '
+           sh 'ssh -o StrictHostKeyChecking=no root@3.90.177.243 "sudo docker run -d  -p 4560:8000  september:v5 " '
     }
 }
