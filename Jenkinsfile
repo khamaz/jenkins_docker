@@ -25,13 +25,9 @@ node {
     }
 
     stage('Push image') {
-        /* Finally, we'll push the image with two tags:
-         * First, the incremental build number from Jenkins
-         * Second, the 'latest' tag.
-         * Pushing multiple tags is cheap, as all the layers are reused.*/ 
-         docker.withRegistry( credentialsId:'0528161a-f932-431d-b5a0-b631674a8ecc', url: "https://hub.docker.com/?ref=login") {
-         app.push("${env.BUILD_NUMBER}")
-          app.push("latest")
-          }
-     }
+        docker.withRegistry( credentialsId:'0528161a-f932-431d-b5a0-b631674a8ecc', url: "https://hub.docker.com/?ref=login") {
+        app.push("${env.BUILD_NUMBER}")
+        app.push("latest")
+        }
+    }
 }
